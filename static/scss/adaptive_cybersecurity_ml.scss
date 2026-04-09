@@ -1,0 +1,117 @@
+// SCSS Source File for Adaptive Cybersecurity ML Dashboard
+// Compile this to CSS for production use
+
+// Variables
+$primary-dark: #0a0e27;
+$secondary-dark: #151b3d;
+$accent-blue: #00d4ff;
+$accent-green: #00ff88;
+$accent-purple: #b24bf3;
+$accent-red: #ff3366;
+$accent-yellow: #ffd700;
+$text-light: #e0e6f0;
+$text-muted: #8892b0;
+$glass-bg: rgba(21, 27, 61, 0.7);
+
+// Mixins
+@mixin glow($color) {
+    box-shadow: 0 0 20px rgba($color, 0.5);
+}
+
+@mixin gradient-border($color1, $color2) {
+    border: 1px solid;
+    border-image: linear-gradient(135deg, $color1, $color2) 1;
+}
+
+@mixin glassmorphism {
+    background: $glass-bg;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($accent-blue, 0.3);
+}
+
+// Base styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, $primary-dark 0%, $secondary-dark 100%);
+    color: $text-light;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+// Navbar
+.navbar {
+    @include glassmorphism;
+    border-bottom: 1px solid rgba($accent-blue, 0.2);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    &-brand {
+        font-family: 'Orbitron', monospace;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $accent-blue;
+        text-shadow: 0 0 20px rgba($accent-blue, 0.5);
+        letter-spacing: 2px;
+    }
+    
+    &-nav .nav-link {
+        color: $text-light;
+        margin: 0 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, $accent-blue, $accent-green);
+            transition: width 0.3s ease;
+        }
+        
+        &:hover {
+            color: $accent-blue;
+            text-shadow: 0 0 20px rgba($accent-blue, 0.5);
+            
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Cards
+.anomaly-card, .info-card, .graph-card {
+    @include glassmorphism;
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    
+    &:hover {
+        transform: translateY(-10px);
+        @include glow($accent-blue);
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Adaptive Cyber-Threat Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/adaptive_cybersecurity_ml.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/home">
+                <i class="fas fa-shield-alt"></i> ADAPTIVE-ML
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/prediction">Prediction</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="graphsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Graphs
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="graphsDropdown">
+                            <li><a class="dropdown-item" href="/graphs1">CICIDS2017</a></li>
+                            <li><a class="dropdown-item" href="/graphs2">UNSW_NB15</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="notebooksDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Notebooks
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="notebooksDropdown">
+                            <li><a class="dropdown-item" href="../static/CICIDS2017.html">CICIDS2017</a></li>
+                            <li><a class="dropdown-item" href="../static/UNSW_NB15.html">UNSW_NB15</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn" href="/">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section class="cyber-hero">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../static/images/carousel-1.jpg" class="d-block w-100" alt="Cyber Threat Monitoring">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="hero-tag"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Real-Time
+                                Anomaly Detection</div>
+                            <h1>Adaptive <span>Cybersecurity</span><br>Anomaly Detection</h1>
+                            <p>Leveraging advanced stream processing to detect complex network threats with
+                                adaptive statistical monitoring and concept drift adaptation.</p>
+                            <div class="hero-actions">
+                                <a href="/prediction" class="btn-primary-cyber"><i class="fas fa-play"></i> Run
+                                    Detection</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/images/carousel-2.jpg" class="d-block w-100" alt="Concept Drift Adaptation">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="hero-tag"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Drift-Aware ML
+                            </div>
+                            <h1>Dynamic <span>Concept Drift</span><br>Adaptation</h1>
+                            <p>Utilizing DDM and EDDM algorithms to automatically detect changes in attack patterns
+                                and adjust models without manual intervention.</p>
+                            <div class="hero-actions">
+                                <a href="/graphs1" class="btn-primary-cyber"><i class="fas fa-chart-line"></i> View
+                                    Analytics</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/images/carousel-3.jpg" class="d-block w-100" alt="Automated Security">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="hero-tag"><i class="fas fa-circle" style="font-size:0.5rem;"></i> Proactive
+                                Defense</div>
+                            <h1>Continuous <span>Learning</span><br>for Network Threats</h1>
+                            <p>Our model evolves as the threat landscape shifts, providing high-precision protection
+                                against Botnets, DoS attacks, and network infiltrations.</p>
+                            <div class="hero-actions">
+                                <a href="/prediction" class="btn-primary-cyber"><i class="fas fa-shield-alt"></i> Start
+                                    Prediction</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+            <div class="carousel-indicators" style="bottom:1.5rem;">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Adaptive Detection Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Intelligent Security</div>
+                <h2 class="section-title">The <span>Adaptive</span> Advantage</h2>
+                <p class="section-subtitle">Why traditional static security models fail in today's evolving threat
+                    environment.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="info-card animate-in stagger-1">
+                        <div class="info-card-icon"><i class="fas fa-sync"></i></div>
+                        <h3>Beyond Static Models</h3>
+                        <p>While traditional models become obsolete as attackers modify their behavior, our adaptive
+                            framework continuously updates its detection parameters using real-time stream analysis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-card animate-in stagger-2">
+                        <div class="info-card-icon"><i class="fas fa-bug"></i></div>
+                        <h3>Zero-Day Resilience</h3>
+                        <p>By monitoring statistical variance in network traffic, we can detect novel attack patterns
+                            (Zero-Days) even before they are formally identified in vulnerability databases.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-card animate-in stagger-3">
+                        <div class="info-card-icon"><i class="fas fa-microchip"></i></div>
+                        <h3>Stream-Based Efficiency</h3>
+                        <p>Optimized for real-time throughput, our system processes millions of events with minimal
+                            latency,
+                            ensuring that security analysis never creates a bottleneck in your network.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-card animate-in stagger-4">
+                        <div class="info-card-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Concept Drift Mastery</h3>
+                        <p>Using dual-modality monitoring (DDM & EDDM), our system distinguishes between transient noise
+                            and meaningful changes in attack methodology, reducing false alarm fatigue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Drift Section -->
+    <section class="alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Core Technology</div>
+                <h2 class="section-title">Advanced <span>Drift Adaptation</span></h2>
+                <p class="section-subtitle">Detecting and reacting to structural changes in network traffic patterns.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="info-card animate-in stagger-1">
+                        <div class="info-card-icon"><i class="fas fa-wave-square"></i></div>
+                        <h3>DDM (Drift Detection)</h3>
+                        <p>The Drift Detection Method monitors the error rate of predictions. Increasing errors trigger
+                            Warning or Drift states, signaling that the current model may no longer match the reality of
+                            the incoming traffic.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-card animate-in stagger-2">
+                        <div class="info-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>EDDM (Early Detection)</h3>
+                        <p>Early Drift Detection Method focuses on the distance between successful classifications.
+                            It is particularly sensitive to slow, gradual changes in threat behavior, providing an
+                            earlier
+                            warning than standard methods.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-card animate-in stagger-3">
+                        <div class="info-card-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h3>Real-Time Re-Weighting</h3>
+                        <p>Instead of global retraining, our system incrementally re-weights its knowledge,
+                            allowing it to "unlearn" outdated patterns while rapidly incorporating new threat signatures
+                            into its logic.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-card animate-in stagger-4">
+                        <div class="info-card-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Continuous Validation</h3>
+                        <p>The system maintains a verification loop to ensure that adaptation improves performance.
+                            If a pattern shifts back, the dynamic model can re-adjust to previously learned normal
+                            states.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 0;">
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2026 Adaptive Cybersecurity ML. All rights reserved. Built with precision for enterprise
+                    security.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
